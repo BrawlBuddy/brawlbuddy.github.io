@@ -20,7 +20,7 @@ const Inventory = () => {
     <>
         <div className='content'>
             <div style={inventoryBox}>
-                {inventory.map((brawler, index) => (
+                {inventory.map((brawler) => (
                     <InventoryPick borderColour='#FFB800' imageSrc={brawler.image} key={brawler.name}/>
                 ))}
             </div>
