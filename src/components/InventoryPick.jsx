@@ -12,7 +12,7 @@ const InventoryPick = ({ imageSrc, borderColour }) => {
     <>
         <div className='inventory-pick'>
             <Pick imageSrc={imageSrc} borderColour={borderColour} />
-            <ButtonGroup variant="contained" aria-label="outlined primary button group">
+            <ButtonGroup variant="outlined" aria-label="outlined primary button group">
                 <Button size='small' color='primary'>F</Button>
                 <Button size='small' color='warning'>B</Button>
                 <Button size='small' color='error'>E</Button>

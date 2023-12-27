@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import InventoryPick from './InventoryPick'
-import { InventoryContext } from '../contexts/InventoryContext'
+import { useBrawlersContext } from '../contexts/BrawlersContext'
+import InventoryPick from './InventoryPick';
 
 const Inventory = () => {
     
@@ -15,13 +15,15 @@ const Inventory = () => {
         gridGap: '10px',
 
     }
-    const [inventory, setInventory] = useContext(InventoryContext)
+
+    const { state, dispatch } = useBrawlersContext();
+
     return (
     <>
         <div className='content'>
             <div style={inventoryBox}>
-                {inventory.map((brawler) => (
-                    <InventoryPick borderColour='#FFB800' imageSrc={brawler.image} key={brawler.name}/>
+                {state.brawlers.map(brawler => (
+                    <InventoryPick imageSrc={brawler.image} borderColour='#BCBCBC' key={brawler.name}/>
                 ))}
             </div>
         </div>
