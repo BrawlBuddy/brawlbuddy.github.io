@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #282828;
+    font-family: 'Karla', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    
+}
+
+body {
+    background-color: #1C1C1C;
+    justify-content: center;
+    display: flex;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF3F3F;
+    min-width: 100vw;
+    height: 100px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.container {
+    width: 1120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    width: 1120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    margin-top: 50px;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.bans {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.bangroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.picks-row-2 {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.pickgroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+}
+
+.picklabel {
+    color: #ECECEC;
+    padding-bottom: 20px;
+}
+
+.inventory-pick {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
