@@ -19,7 +19,7 @@ const AddedPick = ({ borderColour, brawler , remove}) => {
     
     return (
     <>
-        <div className='added-pick' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <div className='added-pick' onMouseOver={() => setHovered(true)} onMouseOut={() => setHovered(false)}>
             <Pick imageSrc={brawler.image} borderColour={borderColour} />
             <IconButton size='small' color='error' style={buttonStyle} onClick={() => remove(brawler)}>
                 <CancelIcon />
