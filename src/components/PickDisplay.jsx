@@ -19,6 +19,17 @@ const PickDisplay = () => {
             setBannedDisplay(bannedEmpty => [...bannedEmpty, {name: 'empty'}]);
         }
     }, [state.bannedBrawlers]);
+
+    const removeFromBanned = (brawler) => {
+        dispatch({ type: 'REMOVE_FROM_BANNED', payload: brawler });
+    }
+    const removeFromFriendly = (brawler) => {
+        dispatch({ type: 'REMOVE_FROM_FRIENDLY', payload: brawler });
+    }
+    const removeFromEnemy = (brawler) => {
+        dispatch({ type: 'REMOVE_FROM_ENEMY', payload: brawler });
+    }
+
     return (
     <>
    
@@ -31,7 +42,7 @@ const PickDisplay = () => {
                         (brawler.name === 'empty') ? (
                             <Pick borderColour={banColor} key={index} />
                         ) : (
-                            <AddedPick borderColour={banColor} brawler={brawler} key={brawler.name}/>
+                            <AddedPick borderColour={banColor} brawler={brawler} key={brawler.name} remove={removeFromBanned}/>
                         )
                     ))}
                 </div>
