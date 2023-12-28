@@ -20,6 +20,22 @@ const PickDisplay = () => {
         }
     }, [state.bannedBrawlers]);
 
+    const [ friendlyDisplay, setFriendlyDisplay ] = useState(state.friendlyBrawlers);
+    useEffect(() => {
+        setFriendlyDisplay(state.friendlyBrawlers);
+        for (let i = 0; i < 3 - state.friendlyBrawlers.length; i++) {
+            setFriendlyDisplay(friendlyEmpty => [...friendlyEmpty, {name: 'empty'}]);
+        }
+    }, [state.friendlyBrawlers]);
+
+    const [ enemyDisplay, setEnemyDisplay ] = useState(state.enemyBrawlers);
+    useEffect(() => {
+        setEnemyDisplay(state.enemyBrawlers);
+        for (let i = 0; i < 3 - state.enemyBrawlers.length; i++) {
+            setEnemyDisplay(enemyEmpty => [...enemyEmpty, {name: 'empty'}]);
+        }
+    }, [state.enemyBrawlers]);
+
     const removeFromBanned = (brawler) => {
         dispatch({ type: 'REMOVE_FROM_BANNED', payload: brawler });
     }
@@ -53,17 +69,25 @@ const PickDisplay = () => {
             <div className='pickgroup'>
                 <h2 className='picklabel'>Friendly</h2>
                 <div className='picks-row-2'>
-                    <Pick borderColour={friendlyColor} />
-                    <Pick borderColour={friendlyColor} />
-                    <Pick borderColour={friendlyColor} />
+                    {friendlyDisplay.map((brawler, index) => (
+                        (brawler.name === 'empty') ? (
+                            <Pick borderColour={friendlyColor} key={index} />
+                        ) : (
+                            <AddedPick borderColour={friendlyColor} brawler={brawler} key={brawler.name} remove={removeFromFriendly}/>
+                        )
+                    ))}
                 </div>
             </div>
             <div className='pickgroup'>
                 <h2 className='picklabel'>Enemy</h2>
                 <div className='picks-row-2'>
-                <Pick borderColour={enemyColor} />
-                <Pick borderColour={enemyColor} />
-                <Pick borderColour={enemyColor} />
+                    {enemyDisplay.map((brawler, index) => (
+                        (brawler.name === 'empty') ? (
+                            <Pick borderColour={enemyColor} key={index} />
+                        ) : (
+                            <AddedPick borderColour={enemyColor} brawler={brawler} key={brawler.name} remove={removeFromEnemy}/>
+                        )
+                    ))}
                 </div>
             </div>
             
