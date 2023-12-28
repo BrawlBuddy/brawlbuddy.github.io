@@ -10,10 +10,11 @@ const Inventory = () => {
         borderRadius: '5px',
         backgroundColor: '#282828',
         display: 'grid',
-        gridTemplateColumns: 'repeat(7, 1fr)',
+        gridTemplateColumns: 'repeat(6, 1fr)',
         gridTemplateRows: 'repeat(3, 1fr)',
         gridGap: '10px',
-
+        overflow: 'auto',
+        padding: '10px',
     }
 
     const { state, dispatch } = useBrawlersContext();
@@ -23,7 +24,7 @@ const Inventory = () => {
         <div className='content'>
             <div style={inventoryBox}>
                 {state.brawlers.map(brawler => (
-                    <InventoryPick imageSrc={brawler.image} borderColour='#BCBCBC' key={brawler.name}/>
+                    <InventoryPick imageSrc={brawler.image} borderColour='#BCBCBC' brawler={brawler} key={brawler.name}/>
                 ))}
             </div>
         </div>

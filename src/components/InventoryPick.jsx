@@ -2,20 +2,31 @@ import React from 'react'
 import Pick from './Pick.jsx'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import { useBrawlersContext } from '../contexts/BrawlersContext'
 
-const InventoryPick = ({ imageSrc, borderColour }) => {
+const InventoryPick = ({ imageSrc, borderColour, brawler }) => {
   
     const banColor = '#FFB800'
     const friendlyColor = '#00A3FF'
     const enemyColor = '#F60000'
+    const { _, dispatch } = useBrawlersContext();
+    const addToFriendly = (brawler) => {
+        dispatch({ type: 'ADD_TO_FRIENDLY', payload: brawler });
+    };
+    const addToEnemy = (brawler) => {
+        dispatch({ type: 'ADD_TO_ENEMY', payload: brawler });
+    };
+    const addToBanned = (brawler) => {
+        dispatch({ type: 'ADD_TO_BANNED', payload: brawler });
+    };
     return (
     <>
         <div className='inventory-pick'>
             <Pick imageSrc={imageSrc} borderColour={borderColour} />
             <ButtonGroup variant="outlined" aria-label="outlined primary button group">
-                <Button size='small' color='primary'>F</Button>
-                <Button size='small' color='warning'>B</Button>
-                <Button size='small' color='error'>E</Button>
+                <Button size='small' color='primary' onClick={() => addToFriendly(brawler)}>F</Button>
+                <Button size='small' color='warning' onClick={() => addToBanned(brawler)}>B</Button>
+                <Button size='small' color='error' onClick={() => addToEnemy(brawler)}>E</Button>
             </ButtonGroup>
         </div>
         
