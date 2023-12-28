@@ -10,23 +10,35 @@ export const useBrawlersContext = () => {
 const brawlersReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_FRIENDLY':
-      return {
-        ...state,
-        brawlers: state.brawlers.filter(brawler => brawler.name !== action.payload.name),
-        friendlyBrawlers: [...state.friendlyBrawlers, action.payload],
-      };
+        if (state.friendlyBrawlers.length < 3) {
+            return {
+                ...state,
+                brawlers: state.brawlers.filter(brawler => brawler.name !== action.payload.name),
+                friendlyBrawlers: [...state.friendlyBrawlers, action.payload],
+            };
+        } else {
+            return state;
+        }  
     case 'ADD_TO_ENEMY':
-      return {
-        ...state,
-        brawlers: state.brawlers.filter(brawler => brawler.name !== action.payload.name),
-        enemyBrawlers: [...state.enemyBrawlers, action.payload],
-      };
+        if (state.enemyBrawlers.length < 3) {
+            return {
+                ...state,
+                brawlers: state.brawlers.filter(brawler => brawler.name !== action.payload.name),
+                enemyBrawlers: [...state.enemyBrawlers, action.payload],
+            };
+        } else {
+            return state;
+        }  
     case 'ADD_TO_BANNED':
-      return {
-        ...state,
-        brawlers: state.brawlers.filter(brawler => brawler.name !== action.payload.name),
-        bannedBrawlers: [...state.bannedBrawlers, action.payload],
-      };
+        if (state.bannedBrawlers.length < 6) {
+            return {
+                ...state,
+                brawlers: state.brawlers.filter(brawler => brawler.name !== action.payload.name),
+                bannedBrawlers: [...state.bannedBrawlers, action.payload],
+            };
+        } else {
+            return state;
+        }
     case 'REMOVE_FROM_FRIENDLY':
       return {
         ...state,
