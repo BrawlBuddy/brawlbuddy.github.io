@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { useBrawlersContext } from '../contexts/BrawlersContext'
 
-const InventoryPick = ({ imageSrc, borderColour, brawler }) => {
+const InventoryPick = ({ borderColour, brawler }) => {
   
     const banColor = '#FFB800'
     const friendlyColor = '#00A3FF'
@@ -22,7 +22,7 @@ const InventoryPick = ({ imageSrc, borderColour, brawler }) => {
     return (
     <>
         <div className='inventory-pick'>
-            <Pick imageSrc={imageSrc} borderColour={borderColour} />
+            <Pick imageSrc={brawler.image} borderColour={borderColour} />
             <ButtonGroup variant="outlined" aria-label="outlined primary button group">
                 <Button size='small' color='primary' onClick={() => addToFriendly(brawler)}>F</Button>
                 <Button size='small' color='warning' onClick={() => addToBanned(brawler)}>B</Button>

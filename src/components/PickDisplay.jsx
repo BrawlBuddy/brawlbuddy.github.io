@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Pick from './Pick.jsx'
 import MapSelect from './MapSelect.jsx'
 import { useBrawlersContext } from '../contexts/BrawlersContext'
+import AddedPick from './AddedPick.jsx';
 
 const PickDisplay = () => {
     const banColor = '#FFB800'
@@ -30,7 +31,7 @@ const PickDisplay = () => {
                         (brawler.name === 'empty') ? (
                             <Pick borderColour={banColor} key={index} />
                         ) : (
-                            <Pick borderColour={banColor} imageSrc={brawler.image} key={brawler.name}/>
+                            <AddedPick borderColour={banColor} brawler={brawler} key={brawler.name}/>
                         )
                     ))}
                 </div>
