@@ -6,17 +6,13 @@ import { InventoryContext } from '../contexts/InventoryContext.jsx'
 import { BrawlersProvider } from '../contexts/BrawlersContext.jsx'
 
 const Home = () => {
-    const [inventory, setInventory] = useState([{
-        name: 'Bea',
-        image: 'https://tiermaker.com/images/chart/chart/brawl-stars---brawlers-v2-jule-2022-470498/portraitbeapng.png'
-    }, {name: 'Ash',
-    image: 'https://tiermaker.com/images/chart/chart/brawl-stars---brawlers-v2-jule-2022-470498/portraitashpng.png'}])
+    const [ search, setSearch ] = useState('');
     return (
         <BrawlersProvider>
             <div className='page'>
                 <PickDisplay />
-                <SearchBar />
-                <Inventory />
+                <SearchBar search={search} setSearch={setSearch} />
+                <Inventory search={search} setSearch={setSearch}/>
             </div>
         </BrawlersProvider>
     )

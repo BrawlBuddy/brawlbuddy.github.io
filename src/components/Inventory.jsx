@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useBrawlersContext } from '../contexts/BrawlersContext'
 import InventoryPick from './InventoryPick';
 
-const Inventory = () => {
+const Inventory = ({ search, setSearch }) => {
     
     const inventoryBox = {
         width: '970px',
@@ -18,13 +18,24 @@ const Inventory = () => {
     }
 
     const { state, dispatch } = useBrawlersContext();
+    const [ inventoryDisplay, setInventoryDisplay ] = useState(state.brawlers);
+    useEffect(() => {
+        if (search === '') {
+            setInventoryDisplay(state.brawlers);
+            return;
+        }
+        const filteredItems = state.brawlers.filter(item =>
+            item.name.toLowerCase().includes(search.toLowerCase())
+        );
+        setInventoryDisplay(filteredItems);
+    }, [search, state.brawlers]);
 
     return (
     <>
         <div className='content'>
             <div style={inventoryBox}>
-                {state.brawlers.map(brawler => (
-                    <InventoryPick imageSrc={brawler.image} borderColour='#BCBCBC' brawler={brawler} key={brawler.name}/>
+                {inventoryDisplay.map(brawler => (
+                    <InventoryPick imageSrc={brawler.image} borderColour='#BCBCBC' brawler={brawler} setSearch={setSearch} key={brawler.name}/>
                 ))}
             </div>
         </div>

@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { useBrawlersContext } from '../contexts/BrawlersContext'
 
-const InventoryPick = ({ borderColour, brawler }) => {
+const InventoryPick = ({ borderColour, brawler, setSearch }) => {
   
     const banColor = '#FFB800'
     const friendlyColor = '#00A3FF'
@@ -12,12 +12,15 @@ const InventoryPick = ({ borderColour, brawler }) => {
     const { _, dispatch } = useBrawlersContext();
     const addToFriendly = (brawler) => {
         dispatch({ type: 'ADD_TO_FRIENDLY', payload: brawler });
+        setSearch('');
     };
     const addToEnemy = (brawler) => {
         dispatch({ type: 'ADD_TO_ENEMY', payload: brawler });
+        setSearch('');
     };
     const addToBanned = (brawler) => {
         dispatch({ type: 'ADD_TO_BANNED', payload: brawler });
+        setSearch('');
     };
     return (
     <>
