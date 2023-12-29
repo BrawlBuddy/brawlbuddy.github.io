@@ -57,6 +57,22 @@ const brawlersReducer = (state, action) => {
         brawlers: [...state.brawlers, action.payload],
         bannedBrawlers: state.bannedBrawlers.filter(brawler => brawler.name !== action.payload.name),
       };
+    case 'UPDATE_SCORES':
+      const brawlerDict = {};
+      state.brawlers.forEach(brawler => {
+        brawlerDict[brawler.name] = brawler;
+      });
+      const updatedBrawlers = action.payload.map(brawler => {
+        if (brawlerDict[brawler.name]) {
+          return {name: brawler.name, score: brawler.score, image: brawlerDict[brawler.name].image};
+        } else {
+          return brawler;
+        }
+      });
+      return {
+        ...state,
+        brawlers: updatedBrawlers,
+      };
     default:
       return state;
   }
