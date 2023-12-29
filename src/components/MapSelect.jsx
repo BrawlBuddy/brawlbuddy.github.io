@@ -5,7 +5,7 @@ import { Select } from '@mui/material';
 import { InputLabel } from '@mui/material';
 import { mapList } from '../assets/MapList'
 
-const MapSelect = ({ selectedMap, setSelectedMap }) => {
+const MapSelect = ({ selectedMap, setSelectedMap, setLoading }) => {
   const mapStyle = {
     width: '170px',
     height: '75px',
@@ -21,6 +21,7 @@ const MapSelect = ({ selectedMap, setSelectedMap }) => {
   const maps = mapList;
   const handleChange = (event) => {
     setSelectedMap(event.target.value);
+    setLoading(true);
   }
     return (
     <>

@@ -6,7 +6,7 @@ import MapSelect from './MapSelect.jsx'
 import { useBrawlersContext } from '../contexts/BrawlersContext'
 import AddedPick from './AddedPick.jsx';
 
-const PickDisplay = ({selectedMap, setSelectedMap}) => {
+const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
     const banColor = '#FFB800'
     const friendlyColor = '#00A3FF'
     const enemyColor = '#F60000'
@@ -50,7 +50,7 @@ const PickDisplay = ({selectedMap, setSelectedMap}) => {
     <>
    
         <div className='content'>
-            <MapSelect selectedMap={selectedMap} setSelectedMap={setSelectedMap} />
+            <MapSelect selectedMap={selectedMap} setSelectedMap={setSelectedMap} setLoading={setLoading} />
             <div className='bangroup'>
                 <h2 className='picklabel'>Bans</h2>
                 <div className='bans'>

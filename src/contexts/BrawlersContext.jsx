@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer } from 'react';
 import { brawlerList } from '../assets/BrawlerList';
+import { portraits } from '../assets/Portraits';
 
 const BrawlersContext = createContext();
 
@@ -58,16 +59,8 @@ const brawlersReducer = (state, action) => {
         bannedBrawlers: state.bannedBrawlers.filter(brawler => brawler.name !== action.payload.name),
       };
     case 'UPDATE_SCORES':
-      const brawlerDict = {};
-      state.brawlers.forEach(brawler => {
-        brawlerDict[brawler.name] = brawler;
-      });
       const updatedBrawlers = action.payload.map(brawler => {
-        if (brawlerDict[brawler.name]) {
-          return {name: brawler.name, score: brawler.score, image: brawlerDict[brawler.name].image};
-        } else {
-          return brawler;
-        }
+        return {name: brawler.name, score: brawler.score, image: portraits[brawler.name]};
       });
       return {
         ...state,

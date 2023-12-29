@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useBrawlersContext } from '../contexts/BrawlersContext'
 import InventoryPick from './InventoryPick';
+import { brawlerList } from '../assets/BrawlerList'
+import CircularProgress from '@mui/material/CircularProgress';
 
-const Inventory = ({ search, setSearch, selectedMap }) => {
+const Inventory = ({ search, setSearch, selectedMap, loading, setLoading }) => {
     
     const inventoryBox = {
         width: '970px',
@@ -27,16 +29,23 @@ const Inventory = ({ search, setSearch, selectedMap }) => {
     useEffect(() => {
         if (search === '') {
             setInventoryDisplay(state.brawlers);
+            //wait for the inventory to be displayed before updating scores
+            setTimeout(() => {
+                setLoading(false);
+            }
+            , 100);
             return;
         }
         const filteredItems = state.brawlers.filter(item =>
             item.name.toLowerCase().includes(search.toLowerCase())
         );
         setInventoryDisplay(filteredItems);
+        setLoading(false);
     }, [search, state.brawlers]);
 
     useEffect(() => {
-        if (selectedMap === '' || state.bannedBrawlers.length === 0 && state.friendlyBrawlers.length === 0 && state.enemyBrawlers.length === 0) {
+        if (selectedMap === '' && state.bannedBrawlers.length === 0 && state.friendlyBrawlers.length === 0 && state.enemyBrawlers.length === 0) {
+            updateScores(brawlerList)
             return;
         }
         const matchContext = {
@@ -61,16 +70,14 @@ const Inventory = ({ search, setSearch, selectedMap }) => {
             }).catch(error => {
                 console.error('Error:', error);
               });
-        
-
     }, [selectedMap, state.bannedBrawlers, state.friendlyBrawlers, state.enemyBrawlers]);
 
     return (
     <>
         <div className='content'>
             <div style={inventoryBox}>
-                {inventoryDisplay.map(brawler => (
-                    <InventoryPick imageSrc={brawler.image} borderColour='#BCBCBC' brawler={brawler} setSearch={setSearch} key={brawler.name}/>
+                {loading ? <CircularProgress/> : inventoryDisplay.map(brawler => (
+                    <InventoryPick imageSrc={brawler.image} borderColour='#BCBCBC' brawler={brawler} setSearch={setSearch} key={brawler.name} setLoading={setLoading}/>
                 ))}
             </div>
         </div>
