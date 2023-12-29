@@ -3,7 +3,6 @@ import Pick from './Pick.jsx'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { useBrawlersContext } from '../contexts/BrawlersContext'
-import { Typography } from '@mui/material';
 
 const InventoryPick = ({ borderColour, brawler, setSearch, setLoading }) => {
   
@@ -37,10 +36,10 @@ const InventoryPick = ({ borderColour, brawler, setSearch, setLoading }) => {
     };
     return (
     <>
-        <div className='inventory-pick'>
+        <div className='inventory-pick fadeIn'>
             <Pick imageSrc={brawler.image} borderColour={borderColour} />
             <h4 style={{color: "white"}}>
-                Score: {brawler.score === -1 ? 0 : brawler.score}
+                Score: {brawler.score === -1 ? "" : brawler.score}
             </h4>
             <ButtonGroup variant="outlined" aria-label="outlined primary button group">
                 <Button size='small' color='primary' onClick={() => addToFriendly(brawler)}>F</Button>

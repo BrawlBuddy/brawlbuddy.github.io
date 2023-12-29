@@ -58,7 +58,7 @@ const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
                         (brawler.name === 'empty') ? (
                             <Pick borderColour={banColor} key={index} />
                         ) : (
-                            <AddedPick borderColour={banColor} brawler={brawler} key={brawler.name} remove={removeFromBanned}/>
+                            <AddedPick borderColour={banColor} brawler={brawler} key={brawler.name} remove={removeFromBanned} setLoading={setLoading}/>
                         )
                     ))}
                 </div>
@@ -73,7 +73,7 @@ const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
                         (brawler.name === 'empty') ? (
                             <Pick borderColour={friendlyColor} key={index} />
                         ) : (
-                            <AddedPick borderColour={friendlyColor} brawler={brawler} key={brawler.name} remove={removeFromFriendly}/>
+                            <AddedPick borderColour={friendlyColor} brawler={brawler} key={brawler.name} remove={removeFromFriendly} setLoading={setLoading}/>
                         )
                     ))}
                 </div>
@@ -85,7 +85,7 @@ const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
                         (brawler.name === 'empty') ? (
                             <Pick borderColour={enemyColor} key={index} />
                         ) : (
-                            <AddedPick borderColour={enemyColor} brawler={brawler} key={brawler.name} remove={removeFromEnemy}/>
+                            <AddedPick borderColour={enemyColor} brawler={brawler} key={brawler.name} remove={removeFromEnemy} setLoading={setLoading}/>
                         )
                     ))}
                 </div>

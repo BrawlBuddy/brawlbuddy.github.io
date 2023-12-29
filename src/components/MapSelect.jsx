@@ -20,8 +20,8 @@ const MapSelect = ({ selectedMap, setSelectedMap, setLoading }) => {
     };
   const maps = mapList;
   const handleChange = (event) => {
-    setSelectedMap(event.target.value);
     setLoading(true);
+    setSelectedMap(event.target.value);
   }
     return (
     <>
