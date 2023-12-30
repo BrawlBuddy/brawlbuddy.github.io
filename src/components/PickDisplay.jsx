@@ -5,6 +5,7 @@ import Pick from './Pick.jsx'
 import MapSelect from './MapSelect.jsx'
 import { useBrawlersContext } from '../contexts/BrawlersContext'
 import AddedPick from './AddedPick.jsx';
+import ClearButton from './ClearButton.jsx';
 
 const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
     const banColor = '#ffbc00'
@@ -63,6 +64,7 @@ const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
                     ))}
                 </div>
             </div>
+            <ClearButton setSelectedMap={setSelectedMap} />
         </div>
 
         <div className='content'>

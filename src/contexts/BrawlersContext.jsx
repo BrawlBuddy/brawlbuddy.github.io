@@ -66,6 +66,14 @@ const brawlersReducer = (state, action) => {
         ...state,
         brawlers: updatedBrawlers,
       };
+    case 'RESET':
+      return {
+        ...state,
+        brawlers: brawlerList,
+        friendlyBrawlers: [],
+        enemyBrawlers: [],
+        bannedBrawlers: [],
+      };
     default:
       return state;
   }
