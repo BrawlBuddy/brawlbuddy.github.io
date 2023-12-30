@@ -42,7 +42,8 @@ const Inventory = ({ search, setSearch, selectedMap, loading, setLoading }) => {
 
     useEffect(() => {
         if (selectedMap === '' && state.bannedBrawlers.length === 0 && state.friendlyBrawlers.length === 0 && state.enemyBrawlers.length === 0) {
-            updateScores(brawlerList)
+            updateScores(brawlerList);
+            setLoading(false);
             return;
         }
         const matchContext = {
