@@ -15,6 +15,7 @@ const AddedPick = ({ borderColour, brawler , remove, setLoading }) => {
         backgroundColor:'#1C1C1C',
         opacity: isHovered ? 1 : 0,
         transition: 'opacity 0.2s ease',
+        
     }
 
     const handleClick = () => {
@@ -26,7 +27,7 @@ const AddedPick = ({ borderColour, brawler , remove, setLoading }) => {
     <>
         <div className='added-pick' onMouseOver={() => setHovered(true)} onMouseOut={() => setHovered(false)}>
             <Pick imageSrc={brawler.image} borderColour={borderColour} />
-            <IconButton size='small' color='error' style={buttonStyle} onClick={() => handleClick()}>
+            <IconButton className='flash' size='small' color='error' style={buttonStyle} onClick={() => handleClick()}>
                 <CancelIcon />
             </IconButton>
         </div>
