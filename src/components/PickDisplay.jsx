@@ -7,7 +7,7 @@ import { useBrawlersContext } from '../contexts/BrawlersContext'
 import AddedPick from './AddedPick.jsx';
 
 const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
-    const banColor = '#FFB800'
+    const banColor = '#ffbc00'
     const friendlyColor = '#00A3FF'
     const enemyColor = '#F60000'
 

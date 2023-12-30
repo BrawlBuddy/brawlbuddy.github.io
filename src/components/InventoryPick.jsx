@@ -3,12 +3,24 @@ import Pick from './Pick.jsx'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { useBrawlersContext } from '../contexts/BrawlersContext'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+    palette: {
+        ban: {
+            main: '#FFB800',
+        },
+        friendly: {
+            main: '#00A3FF',
+        },
+        enemy: {
+            main: '#F60000',
+        },
+    },
+  });
 
 const InventoryPick = ({ borderColour, brawler, setSearch, setLoading }) => {
   
-    const banColor = '#FFB800'
-    const friendlyColor = '#00A3FF'
-    const enemyColor = '#F60000'
     const { state, dispatch } = useBrawlersContext();
     const addToFriendly = (brawler) => {
         if (state.friendlyBrawlers.length === 3) {
@@ -36,18 +48,19 @@ const InventoryPick = ({ borderColour, brawler, setSearch, setLoading }) => {
     };
     return (
     <>
-        <div className='inventory-pick fadeIn'>
-            <Pick imageSrc={brawler.image} borderColour={borderColour} />
-            <h4 style={{color: "white"}}>
-                Score: {brawler.score === -1 ? "" : brawler.score}
-            </h4>
-            <ButtonGroup variant="outlined" aria-label="outlined primary button group">
-                <Button size='small' color='primary' onClick={() => addToFriendly(brawler)}>F</Button>
-                <Button size='small' color='warning' onClick={() => addToBanned(brawler)}>B</Button>
-                <Button size='small' color='error' onClick={() => addToEnemy(brawler)}>E</Button>
-            </ButtonGroup>
-        </div>
-        
+        <ThemeProvider theme={theme}>
+            <div className='inventory-pick fadeIn'>
+                <Pick imageSrc={brawler.image} borderColour={borderColour} />
+                <h4 style={{color: "white"}}>
+                    Score: {brawler.score === -1 ? "" : brawler.score}
+                </h4>
+                <ButtonGroup variant="outlined" aria-label="outlined primary button group">
+                    <Button size='small' color='friendly' onClick={() => addToFriendly(brawler)}>F</Button>
+                    <Button size='small' color='ban' onClick={() => addToBanned(brawler)}>B</Button>
+                    <Button size='small' color='enemy' onClick={() => addToEnemy(brawler)}>E</Button>
+                </ButtonGroup>
+            </div>
+        </ThemeProvider>
     </>
   )
 }
