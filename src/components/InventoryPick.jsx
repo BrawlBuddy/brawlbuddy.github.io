@@ -52,7 +52,7 @@ const InventoryPick = ({ borderColour, brawler, setSearch, setLoading }) => {
             <div className='inventory-pick fadeIn'>
                 <Pick imageSrc={brawler.image} borderColour={borderColour} />
                 <h4 style={{color: "white"}}>
-                    Score: {brawler.score === -1 ? "" : brawler.score}
+                    Score: {brawler.score === -1 ? "" : brawler.score.toFixed(2)}
                 </h4>
                 <ButtonGroup variant="outlined" aria-label="outlined primary button group">
                     <Button size='small' color='friendly' onClick={() => addToFriendly(brawler)}>F</Button>
