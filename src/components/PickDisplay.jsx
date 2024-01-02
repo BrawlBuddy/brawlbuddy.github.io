@@ -85,7 +85,7 @@ const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
                         ))}
                     </div>
                 </div>
-                <div className='pickgroup'>
+                <div className='pickgroup enemygroup'>
                     <h2 className='picklabel'>Enemy</h2>
                     <div className='picks-row-2'>
                         {enemyDisplay.map((brawler, index) => (

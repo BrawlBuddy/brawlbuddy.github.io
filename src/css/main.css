@@ -70,15 +70,18 @@ input {
 }
 
 .bans {
-    display: flex;
-    justify-content: space-around;
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 20px;
+    justify-items: center;
 }
 
 .bangroup {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
 }
 
@@ -122,11 +125,18 @@ input {
     flex-direction: column;
     align-items: center;
     width: 280px;
+    margin-bottom: 50px;
+}
+
+.enemygroup {
+    margin-bottom: 0px;
 }
 
 .friendly-enemy {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
     width: 100%;
 }
 
@@ -219,6 +229,17 @@ input {
         width: 100%;
     }
 
+    .bans {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .friendly-enemy {
+        flex-direction: row;
+    }
+
+    .pickgroup {
+        margin-bottom: 0px;
+    }
 }
 
 @media (min-width: 840px) {
