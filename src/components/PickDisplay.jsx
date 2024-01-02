@@ -51,7 +51,11 @@ const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
     <>
    
         <div className='content'>
-            <MapSelect selectedMap={selectedMap} setSelectedMap={setSelectedMap} setLoading={setLoading} />
+            <div className='mapSelectAndClear'>
+                <MapSelect selectedMap={selectedMap} setSelectedMap={setSelectedMap} setLoading={setLoading} />
+                <ClearButton setSelectedMap={setSelectedMap} />
+            </div>
+            
             <div className='bangroup'>
                 <h2 className='picklabel'>Bans</h2>
                 <div className='bans'>
@@ -64,35 +68,36 @@ const PickDisplay = ({selectedMap, setSelectedMap, setLoading}) => {
                     ))}
                 </div>
             </div>
-            <ClearButton setSelectedMap={setSelectedMap} />
+            
         </div>
 
         <div className='content'>
-            <div className='pickgroup'>
-                <h2 className='picklabel'>Friendly</h2>
-                <div className='picks-row-2'>
-                    {friendlyDisplay.map((brawler, index) => (
-                        (brawler.name === 'empty') ? (
-                            <Pick borderColour={friendlyColor} key={index} />
-                        ) : (
-                            <AddedPick borderColour={friendlyColor} brawler={brawler} key={brawler.name} remove={removeFromFriendly} setLoading={setLoading}/>
-                        )
-                    ))}
+            <div className='friendly-enemy'>
+                <div className='pickgroup'>
+                    <h2 className='picklabel'>Friendly</h2>
+                    <div className='picks-row-2'>
+                        {friendlyDisplay.map((brawler, index) => (
+                            (brawler.name === 'empty') ? (
+                                <Pick borderColour={friendlyColor} key={index} />
+                            ) : (
+                                <AddedPick borderColour={friendlyColor} brawler={brawler} key={brawler.name} remove={removeFromFriendly} setLoading={setLoading}/>
+                            )
+                        ))}
+                    </div>
+                </div>
+                <div className='pickgroup'>
+                    <h2 className='picklabel'>Enemy</h2>
+                    <div className='picks-row-2'>
+                        {enemyDisplay.map((brawler, index) => (
+                            (brawler.name === 'empty') ? (
+                                <Pick borderColour={enemyColor} key={index} />
+                            ) : (
+                                <AddedPick borderColour={enemyColor} brawler={brawler} key={brawler.name} remove={removeFromEnemy} setLoading={setLoading}/>
+                            )
+                        ))}
+                    </div>
                 </div>
             </div>
-            <div className='pickgroup'>
-                <h2 className='picklabel'>Enemy</h2>
-                <div className='picks-row-2'>
-                    {enemyDisplay.map((brawler, index) => (
-                        (brawler.name === 'empty') ? (
-                            <Pick borderColour={enemyColor} key={index} />
-                        ) : (
-                            <AddedPick borderColour={enemyColor} brawler={brawler} key={brawler.name} remove={removeFromEnemy} setLoading={setLoading}/>
-                        )
-                    ))}
-                </div>
-            </div>
-            
         </div>
         
     </>

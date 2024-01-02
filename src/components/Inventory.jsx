@@ -4,19 +4,6 @@ import InventoryPick from './InventoryPick';
 import { brawlerList } from '../assets/BrawlerList'
 
 const Inventory = ({ search, setSearch, selectedMap, loading, setLoading }) => {
-    
-    const inventoryBox = {
-        width: '970px',
-        height: '350px',
-        borderRadius: '5px',
-        backgroundColor: '#282828',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(6, 1fr)',
-        gridTemplateRows: 'repeat(3, 1fr)',
-        gridGap: '10px',
-        overflow: 'auto',
-        padding: '10px',
-    }
 
     const { state, dispatch } = useBrawlersContext();
     const [ inventoryDisplay, setInventoryDisplay ] = useState(state.brawlers);
@@ -74,7 +61,7 @@ const Inventory = ({ search, setSearch, selectedMap, loading, setLoading }) => {
     return (
     <>
         <div className='content'>
-            <div style={inventoryBox}>
+            <div className='inventoryBox'>
                 {inventoryDisplay.map(brawler => (
                     <InventoryPick imageSrc={brawler.image} borderColour='#BCBCBC' brawler={brawler} setSearch={setSearch} key={brawler.name} setLoading={setLoading}/>
                 ))}

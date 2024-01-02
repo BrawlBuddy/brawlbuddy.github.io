@@ -3,16 +3,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import '../css/main.css'
 
 const SearchBar = ({ search, setSearch }) => {
-    const searchBox = {
-        width: '65%',
-        height: '40px',
-        border: '1px solid #ccc',
-        borderRadius: '5px',
-        backgroundColor: '#BFBFBF',
-        display: 'flex',
-        alignItems: 'center',
-        paddingLeft: '10px',
-    }
 
     const handleChange = (value) => {
         setSearch(value);
@@ -21,7 +11,7 @@ const SearchBar = ({ search, setSearch }) => {
     return (
       <>
         <div className='content'>
-          <div style={searchBox}>
+          <div className='searchBox'>
             <SearchIcon style={{marginRight: '10px'}}/>
             <input 
               type='text' 

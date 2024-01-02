@@ -6,18 +6,6 @@ import { InputLabel } from '@mui/material';
 import { mapList } from '../assets/MapList'
 
 const MapSelect = ({ selectedMap, setSelectedMap, setLoading }) => {
-  const mapStyle = {
-    width: '170px',
-    height: '75px',
-    border: '5px solid #8000FF',
-    borderRadius: '5%',
-    position: 'absolute',
-    left: '0px',
-    bottom: '0px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    };
   const maps = mapList;
   const handleChange = (event) => {
     setLoading(true);
@@ -25,7 +13,7 @@ const MapSelect = ({ selectedMap, setSelectedMap, setLoading }) => {
   }
     return (
     <>
-        <div style={mapStyle}>
+        <div className='mapSelect'>
             <FormControl variant='filled' sx={{width: '90%'}} >
                 <InputLabel id="map-select-label" sx={{color: 'white'}}>Map</InputLabel>
                 <Select
