@@ -40,7 +40,7 @@ const Inventory = ({ search, setSearch, selectedMap, loading, setLoading }) => {
             map: selectedMap,
         }
         
-        fetch("http://localhost:8080/brawlerpicks", {
+        fetch("https://brawlbuddy.uc.r.appspot.com/brawlerpicks", {
             method: 'POST',
             body: JSON.stringify(matchContext),
             headers: {
