@@ -73,4 +73,8 @@ export const portraits = {
     "CHUCK": "https://tiermaker.com/images/chart/chart/brawl-stars---brawlers-v2-jule-2022-470498/zzzzz-1697647948chuckportrait.png",
     "CHARLIE": "https://tiermaker.com/images/chart/chart/brawl-stars---brawlers-v2-jule-2022-470498/zzzzz-1699292199eyjwyxroijoic3vwzxjjzwxsxc9mawxlxc9iq1zneufkn1rzvnvoexnmn2tiay5wbmcifqsupercelldj-melwxbift8kqinapz0v7hvjzuo1sss3bcvmq4la.png",
     "MICO": "https://tiermaker.com/images/chart/chart/brawl-stars---brawlers-v2-jule-2022-470498/zzzzz-1702547639micoportrait.png",
+    "KIT": "https://tiermaker.com/images/chart/chart/brawl-stars---brawlers-v2-jule-2022-470498/zzzzz-1705607897kitportrait.png",
+    "LARRY AND LAWRIE": "https://tiermaker.com/images/chart/chart/brawl-stars---brawlers-v2-jule-2022-470498/zzzzz-1706875363larryandlawrieportrait.png",
+    "ANGELO": "https://tiermaker.com/images/chart/chart/brawl-stars---brawlers-v2-jule-2022-470498/zzzzz-1709138399angeloportrait.png",
+    "MELODIE": "https://tiermaker.com/images/chart/chart/brawl-stars---brawlers-v2-jule-2022-470498/zzzzz-1709138399melodieportrait.png",
 }   
