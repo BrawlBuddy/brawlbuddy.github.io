@@ -40,7 +40,9 @@ const Inventory = ({ search, setSearch, selectedMap, loading, setLoading }) => {
             map: selectedMap,
         }
         
-        fetch("https://brawlbuddy.uc.r.appspot.com/brawlerpicks", {
+        const baseURL = import.meta.env.DEV ? import.meta.env.VITE_API_BASE_URL_DEV : import.meta.env.VITE_API_BASE_URL_PROD;
+
+        fetch(`${baseURL}/brawlerpicks`, {
             method: 'POST',
             body: JSON.stringify(matchContext),
             headers: {
