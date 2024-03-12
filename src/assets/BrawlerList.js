@@ -75,4 +75,7 @@ export const brawlerList = [
     {name: "CHUCK", score: -1, image: portraits["CHUCK"]},
     {name: "CHARLIE", score: -1, image: portraits["CHARLIE"]},
     {name: "MICO", score: -1, image: portraits["MICO"]},
+    {name: "KIT", score: -1, image: portraits["KIT"]},
+    //{name: "LARRY AND LAWRIE", score: -1, image: portraits["LARRY AND LAWRIE"]},
+    //{name: "ANGELO", score: -1, image: portraits["ANGELO"]},
 ]
